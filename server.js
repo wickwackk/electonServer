@@ -1,31 +1,13 @@
 const express = require("express");
 // import express from "express"
 const cors = require("cors");
+const bodyParser = require("body-parser");
 
 const app = express();
 const port = 2020;
 app.use(cors());
-
-app.get("/datas", (request, response) => {
-  console.log("Data avah huselt orj irle ");
-  response.status(200).send(datas);
-});
-
-app.get("/users", (request, response) => {
-  console.log("Get products huselt orj irle 1");
-  response.status(200).send("200 shte");
-});
-
-app.listen(port, () => {
-  console.log(`server is running at ${port} port`);
-});
-
+app.use(bodyParser.json());
 const products = [
-  { name: "Iphone", price: 100000 },
-  { name: "Iphone12", price: 200000 },
-];
-
-const datas = [
   {
     description:
       "Customize a Samsung Bespoke 3- or 4-door French door refrigerator or 4-Door Flex refrigerator with panels available in multiple colors and finishes. Plus, shop for matching appliances.",
@@ -664,3 +646,60 @@ const datas = [
     category: "appliances",
   },
 ];
+const users = [
+  {
+    name: "James",
+    surname: "Brown",
+    email: "jamesbrown@gmail.com",
+    order: 2,
+    date: 2022 / 03 / 05,
+  },
+  {
+    name: "Michael",
+    surname: "Jordan",
+    email: "jordan@gmail.com",
+    order: 3,
+    date: 2022 / 03 / 06,
+  },
+  {
+    name: "Michael",
+    surname: "Brax",
+    email: "mikebrax@gmail.com",
+    order: 4,
+    date: 2022 / 03 / 07,
+  },
+  {
+    name: "Jason",
+    surname: "Ron",
+    email: "jasonr@gmail.com",
+    order: 5,
+    date: 2022 / 03 / 08,
+  },
+  {
+    name: "Tom",
+    surname: "Cruise",
+    email: "tommy@gmail.com",
+    order: 6,
+    date: 2022 / 03 / 09,
+  },
+];
+
+app.get("/products", (request, response) => {
+  console.log("Data avah huselt orj irle ");
+  response.status(200).send(products);
+});
+app.post("/products", (req, res) => {
+  console.log(req.body);
+  const newProduct = { id: products[products.length - 1].id + 1, ...req.body };
+  products.push(newProduct);
+  res.json(newProduct);
+});
+
+app.get("/users", (request, response) => {
+  console.log("Get products huselt orj irle 1");
+  response.status(200).send(users);
+});
+
+app.listen(port, () => {
+  console.log(`server is running at ${port} port`);
+});
