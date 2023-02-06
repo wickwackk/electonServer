@@ -102,10 +102,45 @@ app.post("/products", (req, res) => {
 });
 
 app.delete("/products/:id", (req, res) => {
-  const id = req.params.id;
-  console.log("DELETE huselt orj ilee id: ", id);
-  products = products.filter((product) => product.id !== id);
-  console.log("products: ", products);
+  fs.readFile("./data/products.json", (err, data) => {
+    let savedData = JSON.parse(data);
+    console.log("read success");
+    if (err) {
+      res.status(500).send({ message: err });
+    } else {
+      const id = req.params.id;
+      const filtered = savedData.filter((product) => product.id !== id);
+      console.log("filter success");
+      fs.writeFile("./data/products.json", JSON.stringify(filtered), (err) => {
+        if (err) {
+          res.status(500).send({ message: err });
+        } else {
+          res.status(200).send({ success: true, data: filtered });
+        }
+      });
+    }
+  });
+});
+
+app.put("/products/:id", (req, res) => {
+  console.log("Put - products huselt orj irlee");
+  fs.readFile("./data/products.json", (err, data) => {
+    let savedData = JSON.parse(data);
+    if (err) {
+      res.status(500).send({ message: err });
+    } else {
+      const { id } = req.params;
+      const edited = savedData.filter((product) => product.id !== id);
+      edited.unshift(req.body);
+      fs.writeFile("./data/products.json", JSON.stringify(edited), (err) => {
+        if (err) {
+          res.status(500).send({ message: err });
+        } else {
+          res.status(200).send({ message: "Data successfully edited" });
+        }
+      });
+    }
+  });
 });
 
 app.get("/users", (request, response) => {
