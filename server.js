@@ -122,16 +122,21 @@ app.delete("/products/:id", (req, res) => {
   });
 });
 
-app.put("/products/:id", (req, res) => {
-  console.log("Put - products huselt orj irlee");
+app.patch("/products/:id", (req, res) => {
+  console.log("Patch - products huselt orj irlee");
   fs.readFile("./data/products.json", (err, data) => {
     let savedData = JSON.parse(data);
     if (err) {
       res.status(500).send({ message: err });
     } else {
       const { id } = req.params;
-      const edited = savedData.filter((product) => product.id !== id);
-      edited.unshift(req.body);
+      const edited = savedData.map((product) => {
+        if (product.id === id) return { id, ...req.body };
+        return product;
+      });
+
+      // const edited = savedData.filter((product) => product.id !== id);
+      // edited.unshift(req.body);
       fs.writeFile("./data/products.json", JSON.stringify(edited), (err) => {
         if (err) {
           res.status(500).send({ message: err });
