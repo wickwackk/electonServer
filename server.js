@@ -176,6 +176,18 @@ app.get("/users", (request, response) => {
   });
 });
 
+app.get("/orders", (request, response) => {
+  console.log("Orders data avah huselt orj irle ");
+  fs.readFile("./data/orders.json", (err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      const orders = JSON.parse(data);
+      response.status(200).send(orders);
+    }
+  });
+});
+
 app.listen(port, () => {
   // fs.writeFile("./data/users.json", JSON.stringify(users), (err) => {
   //   if (err) {

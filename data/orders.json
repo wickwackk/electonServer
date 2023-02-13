@@ -1,0 +1,51 @@
+[
+  {
+    "orderNum": 1,
+    "address": "James",
+    "itemDetail": [
+      { "itemID": "88b45bfa", "quantity": 1 },
+      { "itemID": "1", "quantity": 3 }
+    ],
+    "email": "jamesbrown@gmail.com",
+    "date": "2022 / 03 / 05",
+    "phone": "80401339",
+    "status": false
+  },
+  {
+    "orderNum": 2,
+    "address": "Michael",
+    "itemDetail": [
+      { "itemID": "2", "quantity": 2 },
+      { "itemID": "2", "quantity": 4 }
+    ],
+    "email": "jordan@gmail.com",
+    "date": "2022 / 03 / 06",
+    "phone": "80401339",
+    "status": true
+  },
+  {
+    "orderNum": 3,
+    "address": "Michael",
+    "itemDetail": [
+      { "itemID": "3", "quantity": 3 },
+      { "itemID": "3", "quantity": 5 }
+    ],
+    "email": "mikebrax@gmail.com",
+    "date": "2022 / 03 / 07",
+    "phone": "80401339",
+    "status": ""
+  },
+  {
+    "orderNum": 4,
+    "address": "Jordan",
+    "itemDetail": [
+      { "itemID": "4", "quantity": 3 },
+      { "itemID": "4", "quantity": 5 },
+      { "itemID": "4", "quantity": 5 }
+    ],
+    "email": "jordan@gmail.com",
+    "date": "2022 / 03 / 07",
+    "phone": "80401339",
+    "status": false
+  }
+]
