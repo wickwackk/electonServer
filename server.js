@@ -168,6 +168,7 @@ app.get("/users", (request, response) => {
   fs.readFile("./data/users.json", (err, data) => {
     if (err) {
       console.log(err);
+      console.error(err);
     } else {
       const users = JSON.parse(data);
       response.status(200).send(users);
