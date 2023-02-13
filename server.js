@@ -9,43 +9,53 @@ const port = 2020;
 app.use(cors());
 app.use(bodyParser.json());
 
-const users = [
-  {
-    name: "James",
-    surname: "Brown",
-    email: "jamesbrown@gmail.com",
-    order: 2,
-    date: 2022 / 03 / 05,
-  },
-  {
-    name: "Michael",
-    surname: "Jordan",
-    email: "jordan@gmail.com",
-    order: 3,
-    date: 2022 / 03 / 06,
-  },
-  {
-    name: "Michael",
-    surname: "Brax",
-    email: "mikebrax@gmail.com",
-    order: 4,
-    date: 2022 / 03 / 07,
-  },
-  {
-    name: "Jason",
-    surname: "Ron",
-    email: "jasonr@gmail.com",
-    order: 5,
-    date: 2022 / 03 / 08,
-  },
-  {
-    name: "Tom",
-    surname: "Cruise",
-    email: "tommy@gmail.com",
-    order: 6,
-    date: 2022 / 03 / 09,
-  },
-];
+// const users = [
+//   {
+//     id: 1,
+//     name: "James",
+//     surname: "Brown",
+//     email: "jamesbrown@gmail.com",
+//     order: 2,
+//     date: "2022 / 03 / 05",
+//     phone: "80401339",
+//   },
+//   {
+//     id: 2,
+//     name: "Michael",
+//     surname: "Jordan",
+//     email: "jordan@gmail.com",
+//     order: 3,
+//     date: "2022 / 03 / 06",
+//     phone: "80401339",
+//   },
+//   {
+//     id: 3,
+//     name: "Michael",
+//     surname: "Brax",
+//     email: "mikebrax@gmail.com",
+//     order: 4,
+//     date: "2022 / 03 / 07",
+//     phone: "80401339",
+//   },
+//   {
+//     id: 4,
+//     name: "Jason",
+//     surname: "Ron",
+//     email: "jasonr@gmail.com",
+//     order: 5,
+//     date: "2022 / 03 / 08",
+//     phone: "80401339",
+//   },
+//   {
+//     id: 5,
+//     name: "Tom",
+//     surname: "Cruise",
+//     email: "tommy@gmail.com",
+//     order: 6,
+//     date: "2022 / 03 / 09",
+//     phone: "80401339",
+//   },
+// ];
 
 app.get("/products", (request, response) => {
   console.log("Data avah huselt orj irle ");
@@ -148,23 +158,29 @@ app.patch("/products/:id", (req, res) => {
   });
 });
 
+// app.get("/users", (request, response) => {
+//   console.log("Get products huselt orj irle 1");
+//   response.status(200).send(users);
+// });
+
 app.get("/users", (request, response) => {
-  console.log("Get products huselt orj irle 1");
-  response.status(200).send(users);
+  console.log("Users data avah huselt orj irle ");
+  fs.readFile("./data/users.json", (err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      const users = JSON.parse(data);
+      response.status(200).send(users);
+    }
+  });
 });
 
 app.listen(port, () => {
-  // fs.readFile("./data/products.json", (err, data) => {
+  // fs.writeFile("./data/users.json", JSON.stringify(users), (err) => {
   //   if (err) {
   //     console.log(err);
   //   } else {
-  //     fs.writeFile("./data/products.json", JSON.stringify(products), (err) => {
-  //       if (err) {
-  //         console.log(err);
-  //       } else {
-  //         console.log("added ");
-  //       }
-  //     });
+  //     console.log("added ");
   //   }
   // });
 
