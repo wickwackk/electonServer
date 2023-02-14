@@ -1,5 +1,16 @@
 [
   {
+    "id": "a4bbe2cc",
+    "description": "Customize a Samsung Bespoke 3- or 4-door French door refrigerator or 4-Door Flex refrigerator with panels available in multiple colors and finishes. Plus, shop for matching appliances.",
+    "spec": "[object Object],[object Object]",
+    "name": "4-Door Flexxx",
+    "image": "https://image-us.samsung.com/SamsungUS/home/home-appliances/refrigerators/090321/rs22t5561sr/RS22T5561SR_01_SIlver_samsung.jpg?$product-details-jpg$",
+    "price": "1222",
+    "stock": "12",
+    "sale": "23",
+    "category": "appliances"
+  },
+  {
     "name": "HP Elitebook 840",
     "spec": [
       { "DisplaySize": "14\"" },
@@ -447,14 +458,14 @@
     "category": "computers & tablets"
   },
   {
-    "id": "88b462d0",
     "description": "The full iPad experience designed to fit in one hand.",
     "spec": [{ "inc": "8.3" }, { "chip": "A15" }],
     "name": "iPad mini",
+    "id": "88b462d0",
     "image": "https://cdn.shopify.com/s/files/1/1706/9177/products/ipad-mini-6-pink-Custom-Mac-BD.jpg?v=1662195085",
     "price": 499,
     "stock": 3,
-    "sale": "28",
+    "sale": 20,
     "category": "computers & tablets"
   },
   {
@@ -571,7 +582,7 @@
     "id": "E1AMdIvnALDBQDLQy9x5Y",
     "description": "shiba zarnaaa",
     "spec": "shiba fast shiba cute",
-    "name": "shibatasss",
+    "name": "shibata",
     "image": "https://www.purina.co.uk/sites/default/files/2021-02/BREED%20Hero_0075_japanese_shiba_inu.jpg",
     "price": "15000",
     "stock": "2",
