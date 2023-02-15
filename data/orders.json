@@ -9,7 +9,8 @@
     "email": "jamesbrown@gmail.com",
     "date": "2022 / 03 / 05",
     "phone": "80401339",
-    "status": false
+    "status": false,
+    "payment": "Card"
   },
   {
     "orderNum": 2,
@@ -21,7 +22,8 @@
     "email": "jordan@gmail.com",
     "date": "2022 / 03 / 06",
     "phone": "80401339",
-    "status": true
+    "status": true,
+    "payment": "Card"
   },
   {
     "orderNum": 3,
@@ -33,7 +35,8 @@
     "email": "mikebrax@gmail.com",
     "date": "2022 / 03 / 07",
     "phone": "80401339",
-    "status": ""
+    "status": "",
+    "payment": "Card"
   },
   {
     "orderNum": 4,
@@ -46,6 +49,7 @@
     "email": "jordan@gmail.com",
     "date": "2022 / 03 / 07",
     "phone": "80401339",
-    "status": false
+    "status": false,
+    "payment": "Card"
   }
 ]

@@ -125,7 +125,9 @@ app.delete("/products/:id", (req, res) => {
         if (err) {
           res.status(500).send({ message: err });
         } else {
-          res.status(200).send({ success: true, data: filtered });
+          res
+            .status(200)
+            .send({ message: "Data successfully deleted", data: filtered });
         }
       });
     }
@@ -184,6 +186,32 @@ app.get("/orders", (request, response) => {
     } else {
       const orders = JSON.parse(data);
       response.status(200).send(orders);
+    }
+  });
+});
+
+app.post("/orders", (req, res) => {
+  fs.readFile("./data/orders.json", (err, data) => {
+    if (err) {
+      res.status(500).send({ message: err });
+    } else {
+      // console.log(JSON.parse(data));
+      const orders = JSON.parse(data);
+      console.log("orders: ", orders);
+      console.log("Body: ", req.body);
+      const newOrder = {
+        orderNum: orders[orders.length - 1].orderNum + 1,
+        ...req.body,
+      };
+      orders.push(newOrder);
+      fs.writeFile("./data/orders.json", JSON.stringify(orders), (err) => {
+        if (err) {
+          res.status(500).send(err);
+        } else {
+          console.log("req", req.body);
+          res.status(200).send(req.body);
+        }
+      });
     }
   });
 });
