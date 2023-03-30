@@ -9,56 +9,8 @@ const port = 2020;
 app.use(cors());
 app.use(bodyParser.json());
 
-// const users = [
-//   {
-//     id: 1,
-//     name: "James",
-//     surname: "Brown",
-//     email: "jamesbrown@gmail.com",
-//     order: 2,
-//     date: "2022 / 03 / 05",
-//     phone: "80401339",
-//   },
-//   {
-//     id: 2,
-//     name: "Michael",
-//     surname: "Jordan",
-//     email: "jordan@gmail.com",
-//     order: 3,
-//     date: "2022 / 03 / 06",
-//     phone: "80401339",
-//   },
-//   {
-//     id: 3,
-//     name: "Michael",
-//     surname: "Brax",
-//     email: "mikebrax@gmail.com",
-//     order: 4,
-//     date: "2022 / 03 / 07",
-//     phone: "80401339",
-//   },
-//   {
-//     id: 4,
-//     name: "Jason",
-//     surname: "Ron",
-//     email: "jasonr@gmail.com",
-//     order: 5,
-//     date: "2022 / 03 / 08",
-//     phone: "80401339",
-//   },
-//   {
-//     id: 5,
-//     name: "Tom",
-//     surname: "Cruise",
-//     email: "tommy@gmail.com",
-//     order: 6,
-//     date: "2022 / 03 / 09",
-//     phone: "80401339",
-//   },
-// ];
-
 app.get("/products", (request, response) => {
-  console.log("Data avah huselt orj irle ");
+  console.log("Product data avah huselt orj irle ");
   fs.readFile("./data/products.json", (err, data) => {
     if (err) {
       console.log(err);
